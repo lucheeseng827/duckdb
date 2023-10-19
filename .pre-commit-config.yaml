@@ -1,0 +1,35 @@
+---
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: sort-simple-yaml
+    -   id: file-contents-sorter
+
+-   repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+    -   id: black
+
+-   repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+    -   id: hadolint-docker
+        types: [dockerfile]
+        language: docker_image
+        entry: hadolint/hadolint:v2.12.0 hadolint --ignore DL3013 --ignore DL3018 --no-color
+        files: Dockerfile
+
+-   repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.37.0
+    hooks:
+    - id: markdownlint
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
