@@ -17,6 +17,7 @@ RUN  apk add --no-cache  \
     py3-pip  \
     py3-setuptools  \
     py3-wheel \
+    # python3-dev \
     && python -m pip install  --upgrade pip --no-cache-dir
 
 # copy requirements.txt first for better cache on later pushes and delete cache
